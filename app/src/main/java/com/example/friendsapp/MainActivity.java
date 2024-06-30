@@ -1,6 +1,7 @@
 package com.example.friendsapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -26,7 +27,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     EditText e1,e2,e3,e4;
-    AppCompatButton b1;
+    AppCompatButton b1,b2;
     String apiUrl="https://friendsapi-re5a.onrender.com/adddata";
 
     @SuppressLint("MissingInflatedId")
@@ -41,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
         e3=(EditText) findViewById(R.id.nickname);
         e4=(EditText) findViewById(R.id.descr);
         b1=(AppCompatButton) findViewById(R.id.submitbtn);
+        b2=(AppCompatButton) findViewById(R.id.viewbtn);
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(getApplicationContext(), viewall.class);
+                startActivity(i);
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
